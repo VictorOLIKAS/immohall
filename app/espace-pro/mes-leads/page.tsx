@@ -1,13 +1,13 @@
 'use client';
 import { useState, useMemo } from 'react';
-import { Search, Filter, Download, Target } from 'lucide-react';
+import { Search, Download, Target } from 'lucide-react';
 
 import LeadRow from '@/components/LeadRow';
 import { LEADS, type LeadStatus } from '@/data/leads';
 
-type Filter = 'all' | LeadStatus;
+type FilterKey = 'all' | 'unlocked' | 'locked' | 'paid';
 
-const FILTERS: { key: Filter; label: string }[] = [
+const FILTERS: { key: FilterKey; label: string }[] = [
   { key: 'all', label: 'Tous' },
   { key: 'unlocked', label: 'Débloqués' },
   { key: 'locked', label: 'À débloquer' },
@@ -15,7 +15,7 @@ const FILTERS: { key: Filter; label: string }[] = [
 ];
 
 export default function MesLeadsPage() {
-  const [filter, setFilter] = useState<Filter>('all');
+  const [filter, setFilter] = useState<FilterKey>('all');
   const [search, setSearch] = useState('');
 
   const filtered = useMemo(() => {
@@ -38,7 +38,7 @@ export default function MesLeadsPage() {
     return result;
   }, [filter, search]);
 
-  const counts = {
+  const counts: Record<FilterKey, number> = {
     all: LEADS.length,
     unlocked: LEADS.filter((l) => l.status === 'unlocked').length,
     locked: LEADS.filter((l) => l.status === 'locked').length,
@@ -53,8 +53,7 @@ export default function MesLeadsPage() {
   return (
     <main className="p-4 sm:p-6 lg:p-8">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center 
-                      justify-between gap-4 mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold text-navy-900">
             Mes leads
@@ -63,11 +62,7 @@ export default function MesLeadsPage() {
             Tous les prospects intéressés par vos annonces.
           </p>
         </div>
-        <button
-          className="inline-flex items-center gap-2 bg-white border 
-                     border-navy-100 hover:border-navy-200 px-4 py-2.5 
-                     rounded-lg text-sm font-semibold text-navy-700 transition"
-        >
+        <button className="inline-flex items-center gap-2 bg-white border border-navy-100 hover:border-navy-200 px-4 py-2.5 rounded-lg text-sm font-semibold text-navy-700 transition">
           <Download size={16} />
           Exporter CSV
         </button>
@@ -75,11 +70,8 @@ export default function MesLeadsPage() {
 
       {/* Alerte leads à débloquer */}
       {counts.locked > 0 && (
-        <div className="bg-gradient-to-r from-orange-500 to-orange-400 
-                        rounded-2xl p-4 mb-6 flex items-start sm:items-center 
-                        gap-3 text-white">
-          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center 
-                          justify-center shrink-0">
+        <div className="bg-gradient-to-r from-orange-500 to-orange-400 rounded-2xl p-4 mb-6 flex items-start sm:items-center gap-3 text-white">
+          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shrink-0">
             <Target size={18} />
           </div>
           <div className="flex-1 min-w-0">
@@ -107,12 +99,11 @@ export default function MesLeadsPage() {
           <button
             key={f.key}
             onClick={() => setFilter(f.key)}
-            className={`px-3 py-1.5 rounded-full text-xs font-semibold 
-                        transition ${
-                          filter === f.key
-                            ? 'bg-navy-900 text-white'
-                            : 'bg-white text-navy-600 border border-navy-100 hover:border-navy-200'
-                        }`}
+            className={`px-3 py-1.5 rounded-full text-xs font-semibold transition ${
+              filter === f.key
+                ? 'bg-navy-900 text-white'
+                : 'bg-white text-navy-600 border border-navy-100 hover:border-navy-200'
+            }`}
           >
             {f.label}
             <span className="ml-1.5 opacity-70">({counts[f.key]})</span>
@@ -131,9 +122,7 @@ export default function MesLeadsPage() {
           placeholder="Rechercher par nom, email ou bien..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full pl-10 pr-3 py-2.5 rounded-lg border border-navy-100 
-                     text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 
-                     bg-white"
+          className="w-full pl-10 pr-3 py-2.5 rounded-lg border border-navy-100 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white"
         />
       </div>
 
@@ -145,8 +134,7 @@ export default function MesLeadsPage() {
           ))}
         </div>
       ) : (
-        <div className="bg-white rounded-2xl border border-navy-100 p-12 
-                        text-center">
+        <div className="bg-white rounded-2xl border border-navy-100 p-12 text-center">
           <p className="text-navy-900 font-bold text-lg mb-2">
             Aucun lead trouvé
           </p>
@@ -168,7 +156,7 @@ function StatCard({
   value: number;
   color: 'navy' | 'green' | 'orange' | 'purple';
 }) {
-  const colors = {
+  const colors: Record<string, string> = {
     navy: 'text-navy-900',
     green: 'text-green-600',
     orange: 'text-orange-500',

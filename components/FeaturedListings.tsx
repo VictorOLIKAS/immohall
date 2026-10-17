@@ -41,29 +41,28 @@ function FeaturedCard({ listing }: { listing: Listing }) {
   const formattedPrice = new Intl.NumberFormat('fr-FR').format(listing.price);
   const isRental = listing.transaction === 'location';
 
+  // Safe badge
+  const badgeLabel = listing.badge?.label || 'Annonce';
+  const badgeColor = listing.badge?.color || 'bg-orange-500';
+
+  // Badge gradient
+  let badgeBg = 'linear-gradient(135deg, #f39a3e, #e87520)';
+  if (badgeColor === 'bg-purple-600') badgeBg = '#9333ea';
+  if (badgeColor === 'bg-navy-700') badgeBg = '#183a5a';
+
   return (
     <Link href={`/annonce/${listing.slug}`} className="featured-card">
       <div className="featured-image">
         <Image
-          src={listing.images[0]}
+          src={listing.images[0] || '/images/hero-property.jpg'}
           alt={listing.title}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           style={{ objectFit: 'cover' }}
         />
 
-        <span
-          className="featured-badge"
-          style={{
-            background:
-              listing.badge.color === 'bg-purple-600'
-                ? '#9333ea'
-                : listing.badge.color === 'bg-navy-700'
-                ? '#183a5a'
-                : 'linear-gradient(135deg, #f39a3e, #e87520)',
-          }}
-        >
-          {listing.badge.label}
+        <span className="featured-badge" style={{ background: badgeBg }}>
+          {badgeLabel}
         </span>
 
         <button
