@@ -930,3 +930,803 @@
     animation-duration: 0.01ms !important;
   }
 }
+/* =========================================================
+   OFF-MARKET PAGE (/off-market)
+========================================================= */
+
+/* ---------- HERO ---------- */
+.offmarket-hero {
+  padding: 60px 0 40px;
+  background: linear-gradient(135deg, #faf8f3 0%, #f5f2ea 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.offmarket-hero::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  right: -200px;
+  top: -200px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(232, 117, 32, 0.08),
+    transparent 70%
+  );
+}
+
+.offmarket-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+
+.offmarket-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #183a5a;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 8px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.offmarket-hero-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #183a5a;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px;
+}
+
+.offmarket-hero-title span {
+  color: #e87520;
+}
+
+.offmarket-hero-desc {
+  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  color: #657684;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0;
+}
+
+/* ---------- FORM SECTION ---------- */
+.offmarket-form-section {
+  padding: 40px 0;
+  background: white;
+}
+
+.offmarket-form-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Left: Info */
+.offmarket-form-info {
+  position: sticky;
+  top: 100px;
+  padding: 20px 0;
+}
+
+.offmarket-form-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(232, 117, 32, 0.1);
+  color: #e87520;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.offmarket-form-title {
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  font-weight: 800;
+  color: #183a5a;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.offmarket-form-subtitle {
+  font-size: 0.95rem;
+  color: #657684;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.offmarket-form-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.offmarket-form-benefits li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: #183247;
+  font-weight: 600;
+}
+
+.offmarket-benefit-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(50, 161, 201, 0.15);
+  color: #176f9d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Right: Form */
+.offmarket-form-card {
+  background: white;
+  border: 1px solid rgba(24, 58, 90, 0.1);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 15px 40px rgba(24, 58, 90, 0.08);
+}
+
+.offmarket-form-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #183a5a;
+  margin: 0 0 20px;
+}
+
+.offmarket-form-errors {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+
+.offmarket-form-errors-title {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #dc2626;
+  margin: 0 0 6px;
+}
+
+.offmarket-form-errors ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75rem;
+  color: #991b1b;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.offmarket-field {
+  margin-bottom: 18px;
+}
+
+.offmarket-field label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #183a5a;
+  margin-bottom: 8px;
+}
+
+.offmarket-field-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.offmarket-field-input svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #657684;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.offmarket-field-input input,
+.offmarket-field-input textarea {
+  width: 100%;
+  padding: 12px 14px 12px 42px;
+  border: 1px solid #d8dee2;
+  border-radius: 9px;
+  background: white;
+  color: #183247;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.offmarket-field-input input:focus,
+.offmarket-field-input textarea:focus {
+  border-color: #32a1c9;
+  box-shadow: 0 0 0 3px rgba(50, 161, 201, 0.12);
+}
+
+.offmarket-field-textarea svg {
+  top: 16px;
+  transform: none;
+}
+
+.offmarket-field-textarea textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.offmarket-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.78rem;
+  color: #657684;
+  line-height: 1.5;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.offmarket-checkbox input {
+  margin-top: 3px;
+  cursor: pointer;
+  accent-color: #e87520;
+  flex-shrink: 0;
+}
+
+.offmarket-link {
+  color: #e87520;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.offmarket-link:hover {
+  color: #c95c13;
+}
+
+.offmarket-submit-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #f39a3e, #e87520);
+  color: white;
+  font-weight: 800;
+  font-size: 0.92rem;
+  padding: 14px 24px;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 0 7px 20px rgba(232, 117, 32, 0.25);
+  transition: all 0.2s;
+}
+
+.offmarket-submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(232, 117, 32, 0.35);
+}
+
+.offmarket-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.offmarket-form-footer {
+  text-align: center;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  margin: 14px 0 0;
+}
+
+/* ---------- LISTINGS ---------- */
+.offmarket-listings-section {
+  padding: 60px 0;
+  background: #faf8f3;
+}
+
+.offmarket-listings-head {
+  margin-bottom: 32px;
+  max-width: 720px;
+}
+
+.offmarket-listings-title {
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 800;
+  color: #183a5a;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+}
+
+.offmarket-listings-subtitle {
+  font-size: 0.92rem;
+  color: #657684;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.offmarket-listings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.offmarket-listing-card {
+  background: #183a5a;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.offmarket-listing-card:hover {
+  transform: translateY(-4px);
+}
+
+.offmarket-listing-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.offmarket-listing-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(24, 58, 90, 0.75);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.offmarket-listing-lock {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 1;
+}
+
+.offmarket-listing-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 900;
+  padding: 5px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.08em;
+  z-index: 2;
+}
+
+.offmarket-listing-body {
+  padding: 18px;
+  color: white;
+}
+
+.offmarket-listing-type {
+  margin: 0 0 6px;
+  color: #f39a3e;
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.offmarket-listing-title {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: white;
+}
+
+.offmarket-listing-location {
+  margin: 0 0 14px;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.offmarket-listing-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.76rem;
+}
+
+.offmarket-listing-cta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 12px;
+  color: #f39a3e;
+  font-size: 0.8rem;
+  font-weight: 800;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- WHY SECTION ---------- */
+.offmarket-why-section {
+  padding: 70px 0;
+  background: white;
+}
+
+.offmarket-why-head {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.offmarket-why-title {
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 800;
+  color: #183a5a;
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+
+.offmarket-why-subtitle {
+  font-size: 0.95rem;
+  color: #657684;
+  margin: 0;
+}
+
+.offmarket-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.offmarket-why-card {
+  background: #faf8f3;
+  border: 1px solid rgba(24, 58, 90, 0.08);
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: all 0.2s;
+}
+
+.offmarket-why-card:hover {
+  border-color: rgba(232, 117, 32, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(24, 58, 90, 0.08);
+}
+
+.offmarket-why-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(232, 117, 32, 0.12);
+  color: #e87520;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.offmarket-why-card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #183a5a;
+  margin: 0 0 8px;
+}
+
+.offmarket-why-card-desc {
+  font-size: 0.85rem;
+  color: #657684;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ---------- CTA FINAL ---------- */
+.offmarket-cta-section {
+  padding: 40px 0 70px;
+  background: white;
+}
+
+.offmarket-cta-box {
+  background: linear-gradient(135deg, #183a5a 0%, #1e4d75 100%);
+  border-radius: 24px;
+  padding: 50px 40px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.offmarket-cta-box::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  right: -150px;
+  top: -150px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(232, 117, 32, 0.15),
+    transparent 70%
+  );
+}
+
+.offmarket-cta-shield {
+  margin: 0 auto 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.offmarket-cta-title {
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 800;
+  margin: 0 0 12px;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.offmarket-cta-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 500px;
+  margin: 0 auto 24px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.offmarket-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #f39a3e, #e87520);
+  color: white;
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 14px 28px;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 0 7px 20px rgba(232, 117, 32, 0.3);
+  transition: all 0.2s;
+  position: relative;
+  z-index: 1;
+}
+
+.offmarket-cta-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(232, 117, 32, 0.4);
+}
+
+/* =========================================================
+   OFF-MARKET MERCI PAGE
+========================================================= */
+.offmarket-merci-page {
+  min-height: calc(100vh - 200px);
+  background: linear-gradient(135deg, #faf8f3 0%, #f5f2ea 100%);
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+}
+
+.offmarket-merci-card {
+  max-width: 640px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 24px;
+  padding: 48px 40px;
+  box-shadow: 0 20px 50px rgba(24, 58, 90, 0.1);
+  text-align: center;
+}
+
+.offmarket-merci-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.12);
+  color: #22c55e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.offmarket-merci-title {
+  font-size: clamp(1.6rem, 2.8vw, 2rem);
+  font-weight: 800;
+  color: #183a5a;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.offmarket-merci-desc {
+  font-size: 0.95rem;
+  color: #657684;
+  line-height: 1.6;
+  margin: 0 0 32px;
+}
+
+.offmarket-merci-desc strong {
+  color: #183a5a;
+}
+
+.offmarket-merci-steps {
+  text-align: left;
+  background: #faf8f3;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 28px;
+}
+
+.offmarket-merci-steps-title {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #183a5a;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.offmarket-merci-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(24, 58, 90, 0.08);
+}
+
+.offmarket-merci-step:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.offmarket-merci-step-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(232, 117, 32, 0.1);
+  color: #e87520;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.offmarket-merci-step-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #183a5a;
+  margin: 0 0 4px;
+}
+
+.offmarket-merci-step-desc {
+  font-size: 0.78rem;
+  color: #657684;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.offmarket-merci-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.offmarket-merci-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #f39a3e, #e87520);
+  color: white;
+  font-weight: 800;
+  font-size: 0.88rem;
+  padding: 12px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 7px 20px rgba(232, 117, 32, 0.25);
+  transition: all 0.2s;
+}
+
+.offmarket-merci-btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+.offmarket-merci-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  color: #183a5a;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: 1px solid rgba(24, 58, 90, 0.15);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.offmarket-merci-btn-secondary:hover {
+  border-color: #e87520;
+  color: #e87520;
+}
+
+.offmarket-merci-contact {
+  font-size: 0.82rem;
+  color: #657684;
+  margin: 0;
+}
+
+/* =========================================================
+   RESPONSIVE (Off-Market)
+========================================================= */
+@media (max-width: 1024px) {
+  .offmarket-form-wrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .offmarket-form-info {
+    position: static;
+  }
+  .offmarket-listings-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .offmarket-why-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .offmarket-hero {
+    padding: 40px 0 30px;
+  }
+  .offmarket-form-card {
+    padding: 24px 20px;
+  }
+  .offmarket-listings-grid {
+    grid-template-columns: 1fr;
+  }
+  .offmarket-cta-box {
+    padding: 40px 24px;
+  }
+  .offmarket-merci-card {
+    padding: 36px 24px;
+  }
+  .offmarket-merci-actions {
+    flex-direction: column;
+  }
+  .offmarket-merci-btn-primary,
+  .offmarket-merci-btn-secondary {
+    justify-content: center;
+    width: 100%;
+  }
+}
